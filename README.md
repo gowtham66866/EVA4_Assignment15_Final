@@ -1,4 +1,4 @@
-# Mask And Depth Using DeepLearning Prediction
+# Mask And Depth Prediction Using Deep Learning
 Prediction of Mask and Depth of images from background and foreground superimposed on background using Deep Learning Techinques
 
 # I. Problem Statement
