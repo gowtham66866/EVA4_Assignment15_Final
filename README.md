@@ -1,9 +1,9 @@
-# PredictingMaskAndDepthUsingDeepLearning
-Predicting Mask and Depth of image from background and foreground superimposed on background Using Deep Learning Techinques
+# MaskAndDepthUsingDeepLearningPrediction
+Prediction of Mask and Depth of images from background and foreground superimposed on background Using Deep Learning Techinques
 
 # I. Problem Statement
 
-In this project background image and foreground image superimposed on background image are given, task is predict
+In this project, background image and as well as foreground image superimposed on background image are provided, task is to predict
 
 1. Mask Corresponding to the foreground
 2. Depth map of image
@@ -11,25 +11,22 @@ In this project background image and foreground image superimposed on background
 The dataset is given in 10 zip files (batch1_images.zip, batch2_images.zip ..., batch10_images.zip). Each zip contains the following
  folders:
 
-bg_jpg : Background jpg images (160x160)
+bg_jpg : Background jpg Images (160x160)
 
-fg_bg_jpg : Foreground image superimposed on background image with dimension:  (160x160)
+fg_bg_jpg : Foreground image superimposed on background image with Dimension:  (160x160)
 
-mask_black_jpg : Ground truth of Mask of foregorund image on black background with dimension: (160x160)
+mask_black_jpg : Ground truth of Mask of foregorund image on black background with Dimension: (160x160)
 
-depth_fg_bg_jpg: Ground truth of depth image with dimension: (80x80)
+depth_fg_bg_jpg: Ground truth of depth image with Dimension: (80x80)
 
 The complete dataset is available in google drive link:
 
 https://drive.google.com/drive/folders/1YF4HvfTdDwDLYPmBokx4b5QzInMVyAzA?usp=sharing
 
 Jupyter Notebook link:
-https://github.com/monimoyd/PredictingMaskAndDepthUsingDeepLearning/blob/master/assignment15_final_api.ipynb
+https://github.com/gowtham66866/EVA4_Assignment15_Final/blob/master/assignment15_final_api.ipynb
 
 
-If you face any issues in opening Jupyer Notebook, please use the link:
-
-https://colab.research.google.com/drive/1xylqpDJOHght0IcGGblgmMTSK4OKtLoN?usp=sharing
 
 Major Highlights:
 
@@ -43,51 +40,49 @@ Major Highlights:
 
 ## Running the code
 
-For running the code, you can take the Jupyter Notebook assignment15_final_api.ipynb links which I provided above,
+For running the code, Jupyter Notebook assignment15_final_api.ipynb link rovided above,
 make sure you clone the repository inside the notebook to get the API codes
 
-git clone https://github.com/monimoyd/PredictingMaskAndDepthUsingDeepLearning.git 
+git clone https://github.com/gowtham66866/EVA4_Assignment15_Final.git 
 
 Alternatively , if you directly want to use the Jupyter Notebook, please take API from the google drive link:
 
-https://drive.google.com/drive/folders/1YTvb7V0eDfn5MZwBbc4msFkWKH5ArotI?usp=sharing 
+https://drive.google.com/drive/folders/1V6s_9cGmQVQWmNEGTe79--I2sZ5oacej
 
 
-# II. Training
+# II. Training is as follos:
 
-The following diagram shows the main components of training
+The main components of training are shown in following diagram:
 
 ![Project Report](/doc_images/training_components.png)
 
 
-Here inputs are
+The inputs here are
 - 160x160 background images
 - 160x160 foreground images superimposed on background
 - 160x160 ground truth of mask of foreground on black background
 - 80x80 ground truth depth image
 
-Processing are done by:
+Processing is done as follows:
 
-- Data loader loads the data, while image augmentation performs augmentation of image. 
-- Model is used to foreward pass through the neural network and predicts mask 
-- Loss Function calculates loss value between predicted mask image and ground truth mask image as well 
-as predicted depth image and ground truth depth image. The loss value is backpropagated through the neural network
-and weights of model are updated
+- While image augmentation performs augmentation of image, Data loader loads the data
+- Model is used to forward pass through the neural network and mask is predicted
+- Loss Function calculates loss value between predicted mask image and ground truth mask image. Depth image and ground truth depth image is also predicted. The loss value is backpropagated through the neural network and weights of model are updated
 
 
-Outputs are:
+Outputs are as follows:
 
 - 160x160 mask of foreground on black background
 - 80x80 predicted depth image
 
 The code for Traing is available in URL:
 
- https://github.com/monimoyd/PredictingMaskAndDepthUsingDeepLearning/blob/master/utils/train_test_util.py
+ https://github.com/gowtham66866/EVA4_Assignment15_Final/blob/master/utils/train_test_util.py
  
- (Please look for train method)
+ (Train method method can be checked)
 
 
-## i. Data Loader
+## i. Data Loader is as follows:
 
 Datal Loader performs loading of data from the images.
 
@@ -125,7 +120,7 @@ Records are populated as below
  
  The code for dataloader is available in URL:
  
- https://github.com/monimoyd/PredictingMaskAndDepthUsingDeepLearning/blob/master/data_loaders/fg_bg_images_data_loader.py
+ https://github.com/gowtham66866/EVA4_Assignment15_Final/blob/master/data_loaders/fg_bg_images_data_loader.py
   
 
 ## ii. Data Augmentation
@@ -139,7 +134,7 @@ Same Data augmentations are applied on input bg, fg_bg, mask, as well as ground 
 
 
 The code for data augmentation is available in URL: 
- https://github.com/monimoyd/PredictingMaskAndDepthUsingDeepLearning/blob/master/data_transformations/fg_bg_images_data_transformation.py
+ https://github.com/gowtham66866/EVA4_Assignment15_Final/blob/master/data_transformers/fg_bg_images_data_transformation.py
 
 
 ## iii. Model
@@ -176,7 +171,7 @@ depth (80x80)
 
 The code for Model is available in URL:
 
-https://github.com/monimoyd/PredictingMaskAndDepthUsingDeepLearning/blob/master/models/unet_model_small.py
+https://github.com/gowtham66866/EVA4_Assignment15_Final/blob/master/models/unet_model_small.py
 
 
 Model weights are saved after every 100 batches are processed so that I can recover in case any crash happens.
@@ -214,7 +209,7 @@ The structural similarity (SSIM) index is a method for predicting the perceived 
  
  ( I have used 1-SSIM Loss as SSIM Loss is in the range 0 to 1 with 1 being perfect match)
  
- SSIM is implemented in https://github.com/monimoyd/PredictingMaskAndDepthUsingDeepLearning/blob/master/utils/ssim_util.py. 
+ SSIM is implemented in https://github.com/gowtham66866/EVA4_Assignment15_Final/blob/master/utils/ssim_util.py
  The code is taken from https://github.com/Po-Hsun-Su/pytorch-ssim
  
  
@@ -231,7 +226,7 @@ First for each pixel vlaue  predicted mask image and ground mask image a thresho
 then it is considered 1 else zero. Next jaccard_score of sklearn.metrics is used to calculate IoU value.
 
 The code for calculating IoU is:
- https://github.com/monimoyd/PredictingMaskAndDepthUsingDeepLearning/blob/master/utils/iou_util.py
+ https://github.com/gowtham66866/EVA4_Assignment15_Final/blob/master/utils/iou_util.py
 
 
 ## v. Hyper parameters
@@ -283,7 +278,7 @@ For testing, best model from training is loaded and then evaluation is done on t
 
 The code for Testing is available in URL:
 
- https://github.com/monimoyd/PredictingMaskAndDepthUsingDeepLearning/blob/master/utils/train_test_util.py
+https://github.com/gowtham66866/EVA4_Assignment15_Final/blob/master/utils/train_test_util.py
  
  (Please look for test method)
 
@@ -292,7 +287,7 @@ The code for Testing is available in URL:
 # IV. Results
 
 All the results are available in Jupyter Notebook 
-https://github.com/monimoyd/PredictingMaskAndDepthUsingDeepLearning/blob/master/assignment15_final_api.ipynb
+https://github.com/gowtham66866/EVA4_Assignment15_Final/blob/master/assignment15_final_api.ipynb
 
 (Training results are in training cell output titled "Perform training of the model and periodically display statistics, mask , depth images generated, IoU value"
 , and testing results are in testing cell output titled "Load the best model and perform test and Test dataset and show results")
@@ -517,7 +512,7 @@ further attention.
 
 The code for GPU profiling is available in URL:
 
-https://github.com/monimoyd/PredictingMaskAndDepthUsingDeepLearning/blob/master/utils/train_test_util.py
+https://github.com/gowtham66866/EVA4_Assignment15_Final/blob/master/utils/train_test_util.py
 
 (please look for methods _get_gpu_mem, _generate_mem_hook, _add_memory_hooks, log_mem)
 
@@ -568,7 +563,7 @@ iii. Misc time
 
 Note: the plots are generated offline using the Jupyter Notebook:
 
-https://github.com/monimoyd/PredictingMaskAndDepthUsingDeepLearning/blob/master/generate_plots.ipynb
+https://github.com/gowtham66866/EVA4_Assignment15_Final/blob/master/generate_plots.ipynb
 
 ## Analysis: 
 
@@ -586,7 +581,7 @@ MACs:  892294400.0
 
 Code for calculating MACs value is in  the Jupyter Notebook:
 
-https://github.com/monimoyd/PredictingMaskAndDepthUsingDeepLearning/blob/master/assignment15_final_api.ipynb
+https://github.com/gowtham66866/EVA4_Assignment15_Final/blob/master/assignment15_final_api.ipynb
 
 (Please look for cell under the title "Calculate and display MACS value of the model")
 
@@ -662,13 +657,12 @@ Apply knowledge acquired different applications like lung cancer detetion etc.
 # IX. Conclusion
 
 
-In this project, I have worked on predicting Mask and Depth of given background and foregroud superimposed background images. 
+I have worked on predicting Mask and Depth of given background and foregroud superimposed background images in this project. 
 I have used reduced UNet model of only 748K parameters (i.e. less than 1M parameters) and predicted mask and depth almost
  closer to the ground truth values. Mask IoU is around 0.95.
 
-I have used various profiling tools: tensorboard, cprofile, GPU profiler as well as calculated MACS value for the model.
+Various profiling tools has been: tensorboard, cprofile, GPU profiler as well as calculated MACS value for the model.
 
-This project is a great learning opportunity for me.
 
 
 
