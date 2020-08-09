@@ -50,7 +50,7 @@ Alternatively , if you directly want to use the Jupyter Notebook, please take AP
 https://drive.google.com/drive/folders/1V6s_9cGmQVQWmNEGTe79--I2sZ5oacej
 
 
-# II. Training is as follos:
+# II. Training is as follows:
 
 The main components of training are shown in following diagram:
 
