@@ -21,7 +21,7 @@ depth_fg_bg_jpg: Ground truth of depth image with Dimension: (80x80)
 
 The complete dataset is available in google drive link:
 
-https://drive.google.com/drive/folders/1YF4HvfTdDwDLYPmBokx4b5QzInMVyAzA?usp=sharing
+https://drive.google.com/drive/folders/1_DkxxCr9LXli5eAoXZeP_cj0UwnwiKUl?usp=sharing
 
 Jupyter Notebook link:
 https://github.com/gowtham66866/EVA4_Assignment15_Final/blob/master/assignment15_final_api.ipynb
